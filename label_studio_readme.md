@@ -124,7 +124,12 @@ so I have to replace this:
   
   
 Warning:
-there is a bug that will prevent you from seeing your images, to avoid the bug make a temp project where you add the local storage of a valid project you want to work with
-after creating it  the other projects that used that folder will start to show the images as well
-
+there is a bug that will prevent you from seeing your images after you import the json
+In order to see the images you should add the local storage with the path of the project images, but without pressing sync storage
+Go to settings/storage:
+in my example is http://localhost:8080/projects/2/settings/storage
+add the source storage and the target storage
+check the config "Treat every bucket object as a source file"   or the images will not showup!
+DO NOT press the sync storage button
+You will now havbe the images showing up in the project
 
