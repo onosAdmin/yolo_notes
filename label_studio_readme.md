@@ -124,5 +124,7 @@ so I have to replace this:
   
   
 Warning:
-If you want to import a prelabeled dataset you should not import the local storage, you should just import the json and labelstudio will handle the rest  
+there is a bug that will prevent you from seeing your images, to avoid the bug make a temp project where you add the local storage of a valid project you want to work with
+after creating it  the other projects that used that folder will start to show the images as well
+
 
