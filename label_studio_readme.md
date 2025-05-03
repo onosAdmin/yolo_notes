@@ -66,22 +66,43 @@ label-studio start
 
 
 Check this:
-http://localhost:8080/data/local-files/?d=dataset_mio_2x4_brick/images/2025-05-03-131352_3.jpg
+http://localhost:8080/data/local-files/?d=made_myself/autolabel_2x4_brick/train/images/2025-05-03-131352_3.jpg
+
+It should work
 
 
-should work
+
 given the images are here:
-/media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/dataset_mio_2x4_brick/images
+ /media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/autolabel_2x4_brick/train/images
 
 
+
+
+
+
+add the classes.txt file to the train/ folder
+
+
+the file should contain every class and there should be a new line separating each
+for example:
+
+```
+brick_1x6
+brick_2x2
+brick_2x4
+plate_1x2
+plate_2x2
+plate_2x4
+```
+
+
+
+Replace autolabel_2x4_brick/images/  with your path
 
 Run the converter to convert the yolo annotations to json
 
-
-Replace dataset_mio_2x4_brick/images/  with your path
-
 ```
-label-studio-converter import yolo -i /media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/dataset_mio_2x4_brick -o output.json --image-root-url "/data/local-files/?d=dataset_mio_2x4_brick/images/"
+label-studio-converter import yolo -i /media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/autolabel_2x4_brick/train/ -o output.json --image-root-url "/data/local-files/?d=made_myself/autolabel_2x4_brick/train/images/"
 ```
 
 
@@ -90,15 +111,18 @@ If the import is not working correctly you could try to modify the json
 
 replace all occurence of "d=one/images/" in the file with your path 
 in my case the absolute path is:
-/media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/dataset_mio_2x4_brick/images/
-
+label-studio-converter import yolo -i /media/data/progetti/prog_miei/computer_vision/yolo_video/riconoscimento_lego/dataset_source/made_myself/autolabel_2x4_brick/train/images
 so I have to replace this:
-"d=one/images/"   with: "d=dataset_mio_2x4_brick/images/"  
+"d=one/images/"   with: "d=made_myself/autolabel_2x4_brick/train/images/"  
 
 
 
   1. Create a new project in Label Studio
   2. Use Labeling Config from "/media/data/progetti/prog_miei/computer_vision/yolo_video/output.label_config.xml"
   3. Import "/media/data/progetti/prog_miei/computer_vision/yolo_video/output.json" to the project
-
+  
+  
+  
+Warning:
+If you want to import a prelabeled dataset you should not import the local storage, you should just import the json and labelstudio will handle the rest  
 
