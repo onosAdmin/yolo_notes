@@ -12,7 +12,7 @@ default_output_folder = "/tmp/ram/yolo_dataset/my_brick_2x2/"
 
 #how to use:
 #this script will process all images in the input folder using the yolo model and create YOLO format annotations
-#this script works only for dataset with a single class in the image!!! and with only a obkject per image
+#this script works only for dataset with a single class in the image!!! and with only a object per image
 
 # python 
 # you should modify the following variables:
